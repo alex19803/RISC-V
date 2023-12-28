@@ -1,6 +1,6 @@
 module PROCESSOR_TB;
 
-  reg clk;
+    reg clk;
     reg toggle;
     reg [31:0]Instr;
 	 wire [31:0]P_out;
@@ -38,9 +38,9 @@ module PROCESSOR_TB;
   //clock signal 
   initial begin
   clk = 0;
-  while(1) begin
+  end 
+  always begin
     #5 clk = ~clk; //repeating clock signal
-	end
   end
 
   //stim gen and input declaration
@@ -50,10 +50,10 @@ module PROCESSOR_TB;
 		  #100
 		  
 	
-		  repeat (10) begin
+		  repeat (19) begin
 				Instr = Instr + 4;
 		  #100;
-        end
+        	  end
 		  #100;
 		  
 		  $finish;
