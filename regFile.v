@@ -5,7 +5,7 @@ module regFile(rs2, rs1, rd, datain, clk, reset, enable, reg_write, reg1, reg2);
 		input clk, reset, reg_write, enable; 
 		output reg [31:0] reg1, reg2;
 		
-		reg [31:0] regFile_contents[31:0];
+		reg [31:0] regFile_contents[31:0]; reg[31:0] one, two;
 		
 		
 		integer k;
@@ -24,8 +24,10 @@ module regFile(rs2, rs1, rd, datain, clk, reset, enable, reg_write, reg1, reg2);
 			regFile_contents[rd] <= datain; 
 		end
 		else begin 
-		 reg1 = regFile_contents[rs1];
-		 reg2 = regFile_contents[rs2];
+		 one = regFile_contents[rs1];
+		 two = regFile_contents[rs2];
+		 reg1 = rs1;
+		 reg2 = rs2;
 		end
 		
 end
